@@ -1116,6 +1116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53118f644848354479e72de7e2413cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Buttons: []
+  duration: 0.2
+  delay: 0.05
+  ease: 27
 --- !u!1 &1009968599
 GameObject:
   m_ObjectHideFlags: 0
