@@ -39,5 +39,14 @@ https://github.com/user-attachments/assets/17c1e754-6710-463d-a16e-612a6bd43102
 https://github.com/user-attachments/assets/80a362f9-58ce-46e8-8461-ee4c0344e122
 
 ---
+4- fazer a câmera seguir o jogador e adicionar animação ao pulo
+
+---
+5- Adicionando estado de vida e morte ao player
+
+### Vídeo
+
+https://github.com/user-attachments/assets/1e9aaa5d-f02d-43ae-9c85-e149cc59d7b4
+
 
 
