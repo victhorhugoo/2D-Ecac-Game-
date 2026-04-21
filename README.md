@@ -33,4 +33,11 @@ colocar foto e vídeo
 https://github.com/user-attachments/assets/17c1e754-6710-463d-a16e-612a6bd43102
 
 ---
-3- 
+3- Implementando a função de correr ao player
+
+### Vídeo
+https://github.com/user-attachments/assets/80a362f9-58ce-46e8-8461-ee4c0344e122
+
+---
+
+
