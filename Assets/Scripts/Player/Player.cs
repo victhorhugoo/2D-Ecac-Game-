@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         HandleMoviment();
     }
 
-    // Movimentação do player
+    // === Movimentação do player ===
     private void HandleMoviment()
     {
         // Fazer o player correr
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Fazer o player pular
+    // === Fazer o player pular ===
     private void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -78,10 +78,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Animar o pulo do player fazendo ele crescer na vertical e diminuir na horizontal para dar a sensação de que ele está se esticando para pular, e depois voltar ao normal
+    // === Animar o pulo do player fazendo ele crescer na vertical e diminuir na horizontal para dar a sensação de que ele está se esticando para pular, e depois voltar ao normal
     private void HandleScaleJump()
     {
         myRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease); // Animando a escala do player na vertical
         myRigidbody.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease); // Animando a escala do player na horizontal
     }
+
 }
