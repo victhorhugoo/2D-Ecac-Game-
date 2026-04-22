@@ -9,13 +9,9 @@ Este projeto teve o objetivo dezenvolver um jogo de plataforma 2D como parte da 
 ## :clipboard: Tecnologias utilizadas
 - C#
 - Unity
----
+--- 
 
-## Início
-
-Este projeto teve o objetivo de criar um jogo 2D como parte da formação em game Desing e Desenvolvedor Unity. 
-
-## ProtoType
+## === ProtoType ===
 Realizar um prototipo para validar as idéias e entender melhor as mecânicas e controles do jogo, antes da implementação das artes e design.
 
 ### 1- Implementei os inputs para movimentação do personagem para esquerda e direita 
