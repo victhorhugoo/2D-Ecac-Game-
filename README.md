@@ -5,7 +5,8 @@
 
 \
 Este projeto teve o objetivo dezenvolver um jogo de plataforma 2D como parte da formação em game Desing e Desenvolvedor Unity. Um jogo onde o personagem poderá andar, correr, saltar, atirar, derrotar alguns inimigos e coletar itens pelo jogo, como moedas. 
-\
+
+
 ## :clipboard: Tecnologias utilizadas
 - C#
 - Unity
