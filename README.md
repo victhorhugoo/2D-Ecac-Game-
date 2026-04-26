@@ -73,4 +73,9 @@ https://github.com/user-attachments/assets/1e9aaa5d-f02d-43ae-9c85-e149cc59d7b4
 ---
 ## === Animação 2D ===
 
+Vídeo
+
+https://github.com/user-attachments/assets/efd0543b-bc61-4a06-9873-6d2c76fd60df
+
+
 
