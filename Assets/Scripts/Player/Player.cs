@@ -21,12 +21,24 @@ public class Player : MonoBehaviour
     public float animationDuration = .3f;   // Duração da animação do pulo
     public Ease ease = Ease.OutBack;        // Ease para a animação do pulo
 
+    [Header("Animation Player")]
+    public string boolRun = "Run";
+    public string boolJump = "Jump";
+    public Animator animator;
+    public float playerSwipeDuration = .1f; // Duração da animação de swipe do player
+
     private float _currentSpeed;            // Velocidade atual do player, que pode ser a velocidade normal ou a velocidade de corrida dependendo se o player está correndo ou não
 
     private void Update()
     {
         HandleJump();
         HandleMoviment();
+
+        // Detectar "fim do pulo"
+        if (Mathf.Abs(myRigidbody.velocity.y) < 0.01f)
+        {
+            animator.SetBool(boolJump, false);
+        }
     }
 
     // === Movimentação do player ===
@@ -36,10 +48,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Z))
         {
             _currentSpeed = speedRun;
+            animator.speed = 2; // Aumentar a velocidade da animação para dar a sensação de que o player está correndo
         }
         else
         {
             _currentSpeed = speed;
+            animator.speed = 1; // Resetar a velocidade da animação para o normal quando o player não estiver correndo
         }
 
         // Fazer o player se mover para os lados
@@ -47,11 +61,25 @@ public class Player : MonoBehaviour
         {
             //myRigidbody.MovePosition(myRigidbody.position - velocity * Time.deltaTime);
             myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
+            if(myRigidbody.transform.localScale.x != -1) // Virar o player para a esquerda
+            {
+                myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+            }
+            animator.SetBool(boolRun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             //myRigidbody.MovePosition(myRigidbody.position + velocity * Time.deltaTime);
             myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
+            if (myRigidbody.transform.localScale.x != 1) // Virar o player para a direita
+            {
+                myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+            } 
+            animator.SetBool(boolRun, true);
+        }
+        else
+        {
+            animator.SetBool(boolRun, false);
         }
 
         // Implementando uma fricção para que o player pare de se mover quando não estiver pressionando as setas
@@ -72,9 +100,11 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = Vector2.up * ForceJump;  // Aplicando uma força para o player pular
             myRigidbody.transform.localScale = Vector2.one; // Resetando a escala do player para evitar que o pulo fique estranho caso o player esteja correndo
-
+            
             DOTween.Kill(myRigidbody.transform);            // Matando qualquer animação de escala que esteja acontecendo para evitar que o pulo fique estranho caso o player esteja correndo
             HandleScaleJump();                              // Chamando a função para animar o pulo
+            
+            animator.SetBool(boolJump, true);
         }
     }
 
