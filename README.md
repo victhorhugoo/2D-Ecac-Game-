@@ -77,5 +77,18 @@ Vídeo
 
 https://github.com/user-attachments/assets/efd0543b-bc61-4a06-9873-6d2c76fd60df
 
+codigo
+
+<img width="1403" height="620" alt="Captura de tela 2026-05-01 224625" src="https://github.com/user-attachments/assets/2023c40b-d0d8-4ecd-a1e8-b32c5c921efb" />
+<img width="1399" height="619" alt="Captura de tela 2026-05-01 224603" src="https://github.com/user-attachments/assets/c239e00e-f498-428e-bc1e-83a10d13e333" />
+<img width="1394" height="632" alt="Captura de tela 2026-05-01 224550" src="https://github.com/user-attachments/assets/30fe1078-9c25-45c1-9baa-85a04f5bd1f7" />
+<img width="1408" height="636" alt="Captura de tela 2026-05-01 224532" src="https://github.com/user-attachments/assets/5b2dc1f5-0f4e-4a4e-b938-f10e269b5a03" />
+
+Vídeo
+
+https://github.com/user-attachments/assets/7ab6c71f-6228-4710-b0c1-603f9b861b4f
+
+
+
 
 
