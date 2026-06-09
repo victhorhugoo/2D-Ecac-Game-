@@ -29,7 +29,12 @@ public class Player : MonoBehaviour
     private void OnPlayerKill()
     {
         healthBase.OnKill -= OnPlayerKill;
+        enabled = false; // Para o Update() do Player imediatamente
+
         _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
+
+        // Destroi após o tempo da animação
+        Destroy(gameObject, 1f); // ajuste para o tempo da sua animação
     }
 
     private void Update()

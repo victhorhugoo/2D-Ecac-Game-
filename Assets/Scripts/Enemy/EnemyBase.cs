@@ -42,6 +42,9 @@ public class EnemyBase : MonoBehaviour
 
     private void PlayAttackAnimation()
     {
+        // Verifica se o animator existe e está ativo antes de setar o trigger
+        if (animator == null || !animator.isActiveAndEnabled) return;
+
         animator.SetTrigger(triggerAttack);
     }
 
