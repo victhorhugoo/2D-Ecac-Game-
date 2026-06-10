@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     private float _currentSpeed;            // Velocidade atual do player, que pode ser a velocidade normal ou a velocidade de corrida dependendo se o player está correndo ou não
     private Animator _currentPlayer;
 
+    [Header("Jump Collision Check")]
+    public Collider2D collider2D;
+    public float distToGround;
+    public float spaceToGround = .1f;
+    public ParticleSystem JumpVFX;
+
     private void Awake()
     {
         if (healthBase != null)
@@ -24,6 +30,16 @@ public class Player : MonoBehaviour
         }
 
         _currentPlayer = Instantiate(soPlayerSetup.player, transform);
+
+        if (collider2D != null)
+        {
+            distToGround = collider2D.bounds.extents.y;
+        }
+    }
+
+    private bool IsGrounded() {
+        Debug.DrawRay(transform.position, -Vector2.up, Color.magenta, distToGround + spaceToGround);
+        return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround);
     }
 
     private void OnPlayerKill()
@@ -39,6 +55,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        IsGrounded();
         HandleJump();
         HandleMoviment();
 
@@ -104,16 +121,22 @@ public class Player : MonoBehaviour
     // === Fazer o player pular ===
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
         {
             myRigidbody.velocity = Vector2.up * soPlayerSetup.ForceJump;  // Aplicando uma força para o player pular
             myRigidbody.transform.localScale = Vector2.one; // Resetando a escala do player para evitar que o pulo fique estranho caso o player esteja correndo
             
             DOTween.Kill(myRigidbody.transform);            // Matando qualquer animação de escala que esteja acontecendo para evitar que o pulo fique estranho caso o player esteja correndo
             HandleScaleJump();                              // Chamando a função para animar o pulo
+            PlayJumpVFX();
 
             _currentPlayer.SetBool(soPlayerSetup.boolJump, true);
         }
+    }
+
+    private void PlayJumpVFX() {
+        if(JumpVFX != null) JumpVFX.Play();
+    
     }
 
     // === Animar o pulo do player fazendo ele crescer na vertical e diminuir na horizontal para dar a sensação de que ele está se esticando para pular, e depois voltar ao normal
