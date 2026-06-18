@@ -8,9 +8,15 @@ public class GunBase : MonoBehaviour
 
     public Transform positionToShoot;
     public float TimeBetweenShots = 0.2f;
+    public Transform playerSideReference;
 
     private Coroutine _currentCoroutine;
-    public Transform playerSideReference;
+    public AudioRandomPlayAudioClips randomShoot;
+
+    private void Awake()
+    {
+        playerSideReference = GameObject.FindAnyObjectByType<Player>().transform;
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +46,8 @@ public class GunBase : MonoBehaviour
 
     public void Shoot()
     {
+        if(randomShoot != null) randomShoot.PlayRandom();
+
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.position = positionToShoot.position;
         projectile.side = playerSideReference.transform.localScale.x;
